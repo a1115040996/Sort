@@ -27,6 +27,57 @@
 				return quickSort(left).concat([middleNumber],quickSort(right))
 			}
 			console.log(quickSort(arr))
+			
+			
+			
+			
+			//实际使用情况
+			(function(){
+				var arr = [
+				{
+					id:1,
+					name:'zhangsan'
+				},
+				{
+					id:7,
+					name:'lisi'
+				},
+				{
+					id:4,
+					name:'wangwu'
+				},
+				{
+					id:3,
+					name:'zhaojia'
+				},
+				{
+					id:9,
+					name:'suiyi'
+				},
+				{
+					id:2,
+					name:'shandong'
+				},
+				]
+				var quickSort = function(arr){
+					if(arr.length<=1) return arr;
+					var middleIndex = Math.floor(arr.length / 2);
+					var middleNumber = arr.splice(middleIndex, 1)[0]
+					var left = []
+					var right = []
+					for (var i = 0;i < arr.length; i++) {
+						if(arr[i]['id'] < middleNumber['id']){
+							left.push(arr[i])
+						}else{
+							right.push(arr[i])
+						}
+					}
+					return quickSort(left).concat([middleNumber], quickSort(right))
+				}
+				
+				
+				console.log(quickSort(arr))
+			})()
 		</script>
 	</body>
 </html>
